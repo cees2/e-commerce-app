@@ -1,12 +1,11 @@
-import classes from "./styles/index.module.css";
-import { StickyNavigation } from "./StickyNavigation";
+import { StickyNavigation } from "./pages/StickyNavigation";
+import { MainHeader } from "./pages/MainHeader";
 
 export const Header = () => {
-    const { headerWrapper } = classes;
     const shouldStickyNavigationBeDisplayed = window.innerWidth <= 600;
     return (
         <div>
-            <header className={headerWrapper}>Fake e commerce app</header>
+            <MainHeader />
             {shouldStickyNavigationBeDisplayed && <StickyNavigation />}
         </div>
     );
