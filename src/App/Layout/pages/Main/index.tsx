@@ -1,8 +1,8 @@
-import { Categories } from "./Categories";
+import { Categories } from "./pages/Categories";
 
 export const Main = () => {
     return (
-        <main>
+        <main className="pt-2 px-2">
             <Categories />
         </main>
     );
