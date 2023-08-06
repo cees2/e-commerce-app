@@ -1,3 +1,9 @@
+import { Categories } from "./Categories";
+
 export const Main = () => {
-    return <main>Main contaent</main>;
+    return (
+        <main>
+            <Categories />
+        </main>
+    );
 };
