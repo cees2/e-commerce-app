@@ -1,0 +1,7 @@
+@import "../../../../../styles/variables.css";
+
+.mainAppContent {
+    background-color: var(--color-secondary);
+    min-height: calc(100vh - (2 * 1rem) - 24px);
+    padding: 0.5rem 1rem;
+}

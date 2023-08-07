@@ -1,7 +1,7 @@
 import classes from "../../styles/StickyNavigation.module.css";
-import HomeSVG from "../../../../../../graphics/home.svg";
-import ShoppingCart from "../../../../../../graphics/shopping_cart.svg";
-import UserAccount from "../../../../../../graphics/user_account.svg";
+import HomeSVG from "../../../../../../graphics/StickyNavigation/home.svg";
+import ShoppingCart from "../../../../../../graphics/StickyNavigation/shopping_cart.svg";
+import UserAccount from "../../../../../../graphics/StickyNavigation/user_account.svg";
 
 export const StickyNavigation = () => {
     const { stickyNavigationBar, stickyNavigationItem } = classes;

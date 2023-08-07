@@ -1,8 +1,11 @@
 import { Categories } from "./pages/Categories";
+import classes from "./styles/Main.module.css";
 
 export const Main = () => {
+    const { mainAppContent } = classes;
+
     return (
-        <main className="pt-2 px-2">
+        <main className={mainAppContent}>
             <Categories />
         </main>
     );
