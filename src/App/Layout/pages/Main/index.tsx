@@ -1,3 +1,4 @@
+import { Bestsellers } from "./pages/Bestsellers";
 import { Categories } from "./pages/Categories";
 import classes from "./styles/Main.module.css";
 
@@ -7,6 +8,7 @@ export const Main = () => {
     return (
         <main className={mainAppContent}>
             <Categories />
+            <Bestsellers />
         </main>
     );
 };
