@@ -1,0 +1,31 @@
+.productsListWrapper {
+    margin-top: 1rem;
+    position: relative;
+    overflow: visible;
+    height: 30vh;
+}
+
+.productItemsWrapper {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.navigationLeftArrow,
+.navigationRightArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+}
+
+.navigationLeftArrow {
+    left: 0;
+    margin-left: 1rem;
+}
+
+.navigationRightArrow {
+    right: 0;
+    margin-right: 1rem;
+}

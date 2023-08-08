@@ -1,7 +1,9 @@
-.productContainer {
+.productGridContainer {
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: 60% 10% 1fr;
+    grid-template-rows: 40vw 10% 1fr;
+    flex-shrink: 0;
+    flex-basis: 40vw;
 }
 
 .productImage {
