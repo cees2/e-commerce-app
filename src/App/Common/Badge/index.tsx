@@ -7,12 +7,17 @@ interface Props {
 }
 
 const getBadgeClassName = (status: BadgeStatus) => {
+    let className = "";
+
     switch (status) {
         case BadgeStatus.BESTSELLER:
-            return "PRIMARY";
+            className = "primary";
+            break;
         default:
-            return "";
+            className = "";
     }
+
+    return classes[className];
 };
 
 export const Badge = ({ title, status }: Props) => {
