@@ -3,8 +3,14 @@ import { Product } from "../Product";
 // import RightArrow from "../../../graphics/Common/right_arrow.svg";
 import { ProductApi } from "../../../api/types";
 import classes from "../styles/ListOfProducts.module.css";
+import { ProductTypesApi } from "../services/types";
 
-export const ListOfProducts = ({ products }: { products: ProductApi[] }) => {
+interface Props {
+    products: ProductApi[];
+    type: ProductTypesApi;
+}
+
+export const ListOfProducts = ({ products, type }: Props) => {
     const {
         productsListWrapper,
         // navigationLeftArrow,
@@ -21,7 +27,7 @@ export const ListOfProducts = ({ products }: { products: ProductApi[] }) => {
             /> */}
             <div className={productItemsWrapper}>
                 {products.map((product) => (
-                    <Product {...product} />
+                    <Product product={product} type={type} />
                 ))}
             </div>
             {/* <img

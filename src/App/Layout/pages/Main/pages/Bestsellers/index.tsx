@@ -1,4 +1,5 @@
 import { ListOfProducts } from "../../../../../Common/ListOfProducts";
+import { ProductTypesApi } from "../../../../../Common/services/types";
 
 const products = [
     {
@@ -88,5 +89,7 @@ const products = [
 ];
 
 export const Bestsellers = () => {
-    return <ListOfProducts products={products} />;
+    return (
+        <ListOfProducts products={products} type={ProductTypesApi.BESTSELLER} />
+    );
 };

@@ -1,0 +1,14 @@
+@import "../../../styles/variables.css";
+
+.badge {
+    padding: 0.125rem 0.25rem;
+    color: var(--font-primary-color);
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 10px;
+    margin-left: 6px;
+}
+
+.primary {
+    background-color: var(--badge-color-primary);
+}
