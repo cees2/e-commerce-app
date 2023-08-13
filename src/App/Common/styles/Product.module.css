@@ -16,7 +16,10 @@
 
 .productTitle {
     font-size: 16px;
+    margin-bottom: 0;
 }
 
 .productPrice {
+    display: flex;
+    align-items: center;
 }

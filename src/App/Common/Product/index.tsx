@@ -19,12 +19,12 @@ export const Product = ({ product, type }: Props) => {
         <div className={productWrapper}>
             <img src={images[0]} alt={title} className={productImage} />
             <h3 className={productTitle}>{title}</h3>
-            <span className={productPrice}>
+            <div className={productPrice}>
                 {formatMoney({ amount: price, currency: "PLN" })}
                 {type === ProductTypesApi.BESTSELLER && (
                     <Badge status={BadgeStatus.BESTSELLER} title="Bestseller" />
                 )}
-            </span>
+            </div>
         </div>
     );
 };
