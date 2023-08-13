@@ -8,9 +8,10 @@ import { ProductTypesApi } from "../services/types";
 interface Props {
     products: ProductApi[];
     type: ProductTypesApi;
+    listHeaderName: string;
 }
 
-export const ListOfProducts = ({ products, type }: Props) => {
+export const ListOfProducts = ({ products, type, listHeaderName }: Props) => {
     const {
         productsListWrapper,
         // navigationLeftArrow,
@@ -19,22 +20,25 @@ export const ListOfProducts = ({ products, type }: Props) => {
     } = classes;
 
     return (
-        <div className={productsListWrapper}>
-            {/* <img
+        <div className="mt-1">
+            <h3 className="mb-1">{listHeaderName}</h3>
+            <div className={productsListWrapper}>
+                {/* <img
                 src={LeftArrow}
                 alt="left arrow"
                 className={navigationLeftArrow}
             /> */}
-            <div className={productItemsWrapper}>
-                {products.map((product) => (
-                    <Product product={product} type={type} />
-                ))}
-            </div>
-            {/* <img
+                <div className={productItemsWrapper}>
+                    {products.map((product) => (
+                        <Product product={product} type={type} />
+                    ))}
+                </div>
+                {/* <img
                 src={RightArrow}
                 alt="right arrow"
                 className={navigationRightArrow}
             /> */}
+            </div>
         </div>
     );
 };

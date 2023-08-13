@@ -90,6 +90,10 @@ const products = [
 
 export const Bestsellers = () => {
     return (
-        <ListOfProducts products={products} type={ProductTypesApi.BESTSELLER} />
+        <ListOfProducts
+            products={products}
+            type={ProductTypesApi.BESTSELLER}
+            listHeaderName="Bestsellers"
+        />
     );
 };

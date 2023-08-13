@@ -7,19 +7,24 @@
     align-items: center;
     flex-shrink: 0;
     flex-basis: calc(50vw - 10px);
-    height: 30vh;
     color: var(--font-primary-color);
 }
 
-.productImage {
+.productWrapper > img.productImage {
+    height: 80%;
+    width: 100%;
+    object-fit: fill;
 }
 
 .productTitle {
+    flex-grow: 1;
     font-size: 16px;
     margin-bottom: 0;
+    text-align: center;
 }
 
 .productPrice {
+    flex-grow: 1;
     display: flex;
     align-items: center;
 }
