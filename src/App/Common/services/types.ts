@@ -4,4 +4,5 @@ export enum BadgeStatus {
 
 export enum ProductTypesApi {
     BESTSELLER = "BESTSELLER",
+    TIME_LIMITED = "TIME_LIMITED",
 }
