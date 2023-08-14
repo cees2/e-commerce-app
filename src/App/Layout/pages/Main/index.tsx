@@ -1,5 +1,5 @@
 import { Bestsellers } from "./pages/Bestsellers";
-import { Categories } from "./pages/Categories";
+import { Categories } from "./pages/Categories/pages/index";
 import { TimeLimitedDeals } from "./pages/TimeLimitedDeals";
 import classes from "./styles/Main.module.css";
 
