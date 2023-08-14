@@ -3,11 +3,11 @@ import { ProductTypesApi } from "../App/Common/services/types";
 export interface CategoryApi {
     id: number;
     name: string;
-    image: string;
+    svg: string;
 }
 
 export interface ProductApi {
-    // id: number;
+    id: number;
     title: string;
     price: number;
     description: string;

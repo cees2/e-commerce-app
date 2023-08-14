@@ -30,7 +30,11 @@ export const ListOfProducts = ({ products, type, listHeaderName }: Props) => {
             /> */}
                 <div className={productItemsWrapper}>
                     {products.map((product) => (
-                        <Product product={product} type={type} />
+                        <Product
+                            product={product}
+                            type={type}
+                            key={product.id}
+                        />
                     ))}
                 </div>
                 {/* <img
