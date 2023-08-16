@@ -1,5 +1,5 @@
 import { Bestsellers } from "./pages/Bestsellers";
-import { Categories } from "./pages/Categories/pages/index";
+import { CategoriesDropdown } from "./components/CategoriesDropdown";
 import { TimeLimitedDeals } from "./pages/TimeLimitedDeals";
 import classes from "./styles/Main.module.css";
 
@@ -8,7 +8,7 @@ export const Main = () => {
 
     return (
         <main className={mainAppContent}>
-            <Categories />
+            <CategoriesDropdown />
             <TimeLimitedDeals />
             <Bestsellers />
         </main>
