@@ -1,14 +1,15 @@
 import classes from "../styles/Categories.module.css";
 import { Dropdown } from "react-bootstrap";
-import { useEffect, useState } from "react";
-// import { getCategories } from "../../../../../../api/requests";
-import { categoriesList } from "../../../../../services/mockData";
-import { CategoryApi } from "../../../../../api/types";
 import { Link } from "react-router-dom";
+import { CategoryApi } from "../../../../../api/types";
 
 interface CategoryItemProps {
     name: string;
     svg: string;
+}
+
+interface Props {
+    categories: CategoryApi[];
 }
 
 const CategoryItem = ({ name, svg }: CategoryItemProps) => {
@@ -28,12 +29,8 @@ const CategoryItem = ({ name, svg }: CategoryItemProps) => {
     );
 };
 
-export const CategoriesDropdown = () => {
-    const [categories, setCategories] = useState<CategoryApi[]>([]);
-    useEffect(() => setCategories(categoriesList), []);
-
+export const CategoriesDropdown = ({ categories }: Props) => {
     const { categoryListTrigger, categoryDropdownOptionsWrapper } = classes;
-    // const { categoryItemSVG } = classes;
 
     return (
         <Dropdown>
