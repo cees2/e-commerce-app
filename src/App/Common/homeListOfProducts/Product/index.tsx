@@ -1,8 +1,8 @@
-import { ProductApi } from "../../../api/types";
-import classes from "../styles/Product.module.css";
-import { formatMoney } from "../../../utils/formatters";
-import { ProductTypesApi, BadgeStatus } from "../services/types";
-import { Badge } from "../Badge";
+import { ProductApi } from "../../../../api/types";
+import classes from "../../styles/Product.module.css";
+import { formatMoney } from "../../../../utils/formatters";
+import { ProductTypesApi, BadgeStatus } from "../../services/types";
+import { Badge } from "../../Badge";
 
 interface Props {
     product: ProductApi;
@@ -17,11 +17,7 @@ export const Product = ({ product, type }: Props) => {
 
     return (
         <div className={productWrapper}>
-            <img
-                src={images[0]}
-                alt={title}
-                className={productImage}
-            />
+            <img src={images[0]} alt={title} className={productImage} />
             <h3 className={productTitle}>{title}</h3>
             <div className={productPrice}>
                 {formatMoney({ amount: price, currency: "PLN" })}

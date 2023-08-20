@@ -12,7 +12,7 @@ import { CategoryApi, ProductApi } from "../../../../api/types";
 
 type MainData = [CategoryApi[], ProductApi[], ProductApi[]];
 
-export const Main = () => {
+export const Home = () => {
     const { mainAppContent } = classes;
     const [categories, timeLimitedDeals, bestsellers] =
         useLoaderData() as MainData;

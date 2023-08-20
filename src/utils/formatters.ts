@@ -7,3 +7,6 @@ export const formatMoney = ({
 }) => {
     return `${amount} ${currency}`;
 };
+
+export const capitalizeFirstLetter = (word: string) =>
+    `${word?.charAt(0).toUpperCase()}${word?.slice(1)}`;

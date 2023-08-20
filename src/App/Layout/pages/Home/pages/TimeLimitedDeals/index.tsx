@@ -1,4 +1,4 @@
-import { ListOfProducts } from "../../../../../Common/ListOfProducts";
+import { HomeListOfProducts } from "../../../../../Common/homeListOfProducts";
 import { ProductTypesApi } from "../../../../../Common/services/types";
 import { ProductApi } from "../../../../../../api/types";
 
@@ -8,7 +8,7 @@ interface Props {
 
 export const TimeLimitedDeals = ({ products }: Props) => {
     return (
-        <ListOfProducts
+        <HomeListOfProducts
             products={products}
             type={ProductTypesApi.TIME_LIMITED}
             listHeaderName="Time limited deals"
