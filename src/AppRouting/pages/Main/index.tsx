@@ -1,8 +1,8 @@
-import { Main } from "../../../App/Layout/pages/Main";
-import { getHomeData } from "../../../App/Layout/pages/Main";
+import { Home } from "../../../App/Layout/pages/Home";
+import { getHomeData } from "../../../App/Layout/pages/Home";
 
 export const mainContentRouting = {
     path: "",
-    element: <Main />,
+    element: <Home />,
     loader: getHomeData,
 };

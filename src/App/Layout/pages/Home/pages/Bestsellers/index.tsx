@@ -1,5 +1,5 @@
 import { ProductApi } from "../../../../../../api/types";
-import { ListOfProducts } from "../../../../../Common/ListOfProducts";
+import { HomeListOfProducts } from "../../../../../Common/homeListOfProducts";
 import { ProductTypesApi } from "../../../../../Common/services/types";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 
 export const Bestsellers = ({ products }: Props) => {
     return (
-        <ListOfProducts
+        <HomeListOfProducts
             products={products}
             type={ProductTypesApi.BESTSELLER}
             listHeaderName="Bestsellers"

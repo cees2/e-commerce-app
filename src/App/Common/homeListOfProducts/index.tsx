@@ -2,7 +2,7 @@ import { Product } from "./Product";
 // import LeftArrow from "../../../graphics/Common/left_arrow.svg";
 // import RightArrow from "../../../graphics/Common/right_arrow.svg";
 import { ProductApi } from "../../../api/types";
-import classes from "../styles/ListOfProducts.module.css";
+import classes from "../styles/homeListOfProducts.module.css";
 import { ProductTypesApi } from "../services/types";
 
 interface Props {
@@ -11,7 +11,11 @@ interface Props {
     listHeaderName: string;
 }
 
-export const ListOfProducts = ({ products, type, listHeaderName }: Props) => {
+export const HomeListOfProducts = ({
+    products,
+    type,
+    listHeaderName,
+}: Props) => {
     const {
         productsListWrapper,
         // navigationLeftArrow,
