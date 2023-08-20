@@ -1,12 +1,11 @@
-import { Layout } from "./App/Layout";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
+import { appMainRouting } from "./AppRouting";
+
+const router = createBrowserRouter([...appMainRouting]);
 
 export function App() {
-    return (
-        <BrowserRouter>
-            <Layout />
-        </BrowserRouter>
-    );
+    return <RouterProvider router={router} />;
 }
 
 export default App;
