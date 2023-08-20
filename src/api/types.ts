@@ -6,6 +6,11 @@ export interface CategoryApi {
     svg: string;
 }
 
+export interface CategoryWithoutSvgApi {
+    id: number;
+    name: string;
+}
+
 export interface ProductApi {
     id: number;
     title: string;
