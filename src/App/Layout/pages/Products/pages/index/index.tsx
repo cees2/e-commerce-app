@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { LoaderFunctionArgs } from "react-router-dom";
-import { getProductsByCategory } from "../../../../../../../../api/requests";
+import { getProductsByCategory } from "../../../../../../api/requests";
 import { useLoaderData } from "react-router-dom";
 
 export const CategoryProductsList = () => {

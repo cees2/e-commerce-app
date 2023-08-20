@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
+import { capitalizeFirstLetter } from "../../../../utils/formatters";
 import { useParams } from "react-router-dom";
-import { capitalizeFirstLetter } from "../../../../../../utils/formatters";
 
 type Params = {
     categoryId: string;
 };
 
-export const CategoriesIndexPage = () => {
+export const ProductsIndexPage = () => {
     const { categoryId } = useParams<Params>();
     const categoryName = capitalizeFirstLetter(categoryId || "");
 

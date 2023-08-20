@@ -21,7 +21,7 @@ const CategoryItem = ({ name, svg }: CategoryItemProps) => {
 
     return (
         <Dropdown.Item className="py-2" onClick={handleClick}>
-            <Link to={`/categories/${name.toLowerCase()}`} className="w-100">
+            <Link to={`/products/${name.toLowerCase()}`} className="w-100">
                 <img src={svg} alt={name} className={categoryItemSVG} />
                 <span>{name}</span>
             </Link>
