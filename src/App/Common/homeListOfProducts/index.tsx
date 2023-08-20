@@ -2,7 +2,7 @@ import { Product } from "./Product";
 // import LeftArrow from "../../../graphics/Common/left_arrow.svg";
 // import RightArrow from "../../../graphics/Common/right_arrow.svg";
 import { ProductApi } from "../../../api/types";
-import classes from "../styles/homeListOfProducts.module.css";
+import classes from "../styles/HomeListOfProducts.module.css";
 import { ProductTypesApi } from "../services/types";
 
 interface Props {

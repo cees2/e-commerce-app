@@ -1,11 +1,11 @@
 import { Layout } from "../App/Layout";
-import { categoriesRouting } from "./pages/Categories";
+import { productsRouting } from "./pages/Products";
 import { mainContentRouting } from "./pages/Main";
 
 export const appMainRouting = [
     {
         path: "/",
         element: <Layout />,
-        children: [mainContentRouting, categoriesRouting],
+        children: [mainContentRouting, productsRouting],
     },
 ];
