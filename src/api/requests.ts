@@ -28,7 +28,7 @@ export const getBestsellers = async () => {
     return products;
 };
 
-// This is proper implementation, but fake api throws 404 when trying to get response that way.
+// This is proper implementation, but fake api throws 404 when trying to get response that way. In real-world app I'd use similar endpoint
 
 // export const getProductsByCategory = async (categoryName: string) => {
 //     const { data: products } = await axios.get(

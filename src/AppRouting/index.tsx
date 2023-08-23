@@ -1,5 +1,5 @@
 import { Layout } from "../App/Layout";
-import { productsRouting } from "./pages/Products";
+import { productsRouting } from "./pages/CategoryProducts";
 import { mainContentRouting } from "./pages/Main";
 
 export const appMainRouting = [

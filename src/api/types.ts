@@ -18,5 +18,4 @@ export interface ProductApi {
     description: string;
     images: string[];
     type?: ProductTypesApi;
-    // category: CategoryApi;
 }
