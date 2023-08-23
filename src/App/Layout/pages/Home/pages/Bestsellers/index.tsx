@@ -1,5 +1,5 @@
 import { ProductApi } from "../../../../../../api/types";
-import { HomeListOfProducts } from "../../../../../Common/homeListOfProducts";
+import { HomeListOfProducts } from "../../../../../Common/HomeProductsList";
 import { ProductTypesApi } from "../../../../../Common/services/types";
 
 interface Props {
