@@ -1,0 +1,22 @@
+.authWrapper {
+    padding: 2rem;
+}
+
+.authHeader {
+    text-align: center;
+}
+
+.logInOrRegisterBar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+}
+
+.logInOrRegisterBar > button {
+    flex-basis: 30%;
+}
+
+.logInOrRegisterBar > button > a {
+    color: #fff;
+    text-decoration: none;
+}
