@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "../../styles/LogIn.module.css";
+import classes from "../../styles/Common.module.css";
 import { FormInput } from "../../../../../Common/Input/FormInput";
 import { useForm } from "react-hook-form";
 import { ButtonLoading } from "../../../../../Common/Button/ButtonLoading";
@@ -13,7 +13,7 @@ interface LogInCredentials {
 
 export const LogIn = () => {
     const [loading, setLoading] = useState(false);
-    const { logInWrapper, logInHeader, logInAndRegisterBar } = classes;
+    const { authWrapper, authHeader, logInOrRegisterBar } = classes;
     const form = useForm<LogInCredentials>();
 
     const { register, handleSubmit } = form;
@@ -25,8 +25,8 @@ export const LogIn = () => {
     });
 
     return (
-        <div className={logInWrapper}>
-            <h3 className={logInHeader}>Log in</h3>
+        <div className={authWrapper}>
+            <h3 className={authHeader}>Log in</h3>
             <FormInput
                 type="email"
                 name="email"
@@ -40,10 +40,10 @@ export const LogIn = () => {
                 register={register}
                 className="mt-2"
             />
-            <div className={logInAndRegisterBar}>
-                <Button variant="outline-light">
-                    <Link to="/auth/register">Register</Link>
-                </Button>
+            <div className={logInOrRegisterBar}>
+                <Link to="/auth/register">
+                    <Button variant="outline-light">Register</Button>
+                </Link>
                 <ButtonLoading
                     loading={loading}
                     onClick={formSubmitHandler}

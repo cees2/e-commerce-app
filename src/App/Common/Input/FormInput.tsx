@@ -19,7 +19,7 @@ export const FormInput = ({
     placeholder,
 }: Props) => {
     return (
-        <Form.Group className={className}>
+        <Form.Group className={`${className} mt-2`}>
             {label && <Form.Label>{label}</Form.Label>}
             <Form.Control
                 {...register(name)}
