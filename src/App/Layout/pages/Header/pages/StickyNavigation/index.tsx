@@ -22,7 +22,7 @@ export const StickyNavigation = () => {
                     <p>Cart</p>
                 </div>
             </Link>
-            <Link to="/authentication/login">
+            <Link to="/auth/login">
                 <div className={stickyNavigationItem}>
                     <img src={LogIn} alt="log in" />
                     <p>Log in</p>
