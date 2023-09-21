@@ -1,4 +1,4 @@
-import { ProductApi } from "../../../../api/types";
+import { ProductApi } from "../../../../services/types";
 import classes from "../../styles/Product.module.css";
 import { formatMoney } from "../../../../utils/formatters";
 import { ProductTypesApi, BadgeStatus } from "../../services/types";

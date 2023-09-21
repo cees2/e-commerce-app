@@ -1,4 +1,4 @@
-import { ProductApi } from "../../../api/types";
+import { ProductApi } from "../../../services/types";
 
 interface Props {
     products: ProductApi[];

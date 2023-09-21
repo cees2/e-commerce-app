@@ -1,7 +1,7 @@
 import classes from "../styles/Categories.module.css";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CategoryApi } from "../../../../../api/types";
+import { CategoryApi } from "../../../../../services/types";
 
 interface CategoryItemProps {
     name: string;

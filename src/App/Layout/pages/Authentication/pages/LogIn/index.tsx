@@ -4,23 +4,27 @@ import { FormInput } from "../../../../../Common/Input/FormInput";
 import { useForm } from "react-hook-form";
 import { ButtonLoading } from "../../../../../Common/Button/ButtonLoading";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-interface LogInCredentials {
-    email: string;
-    password: string;
-}
+import { Link, useNavigate } from "react-router-dom";
+import { LogInCredentials } from "../../../../../../services/types";
+import { loginUser } from "../../../../../../api/requests/authentication";
 
 export const LogIn = () => {
     const [loading, setLoading] = useState(false);
     const { authWrapper, authHeader, logInOrRegisterBar } = classes;
     const form = useForm<LogInCredentials>();
+    const navigate = useNavigate();
 
     const { register, handleSubmit } = form;
 
-    const formSubmitHandler = handleSubmit((data: LogInCredentials) => {
+    const formSubmitHandler = handleSubmit(async (data: LogInCredentials) => {
         setLoading(true);
-        console.log(data);
+        try {
+            const res = await loginUser(data);
+            navigate("/");
+            console.log(res);
+        } catch (err) {
+            console.log(err);
+        }
         setLoading(false);
     });
 

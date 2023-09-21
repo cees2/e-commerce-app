@@ -6,9 +6,9 @@ import {
     getCategories,
     getTimeLimitedDeals,
     getBestsellers,
-} from "../../../../api/requests";
+} from "../../../../api/Old/requests";
 import { useLoaderData } from "react-router-dom";
-import { CategoryApi, ProductApi } from "../../../../api/types";
+import { CategoryApi, ProductApi } from "../../../../services/types";
 
 type MainData = [CategoryApi[], ProductApi[], ProductApi[]];
 
