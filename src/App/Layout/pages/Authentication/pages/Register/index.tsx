@@ -5,13 +5,8 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import classes from "../../styles/Common.module.css";
 import { useState } from "react";
-
-interface RegisterCredentials {
-    name: string;
-    email: string;
-    password: string;
-    passwordConfirm: string;
-}
+import { RegisterCredentials } from "../../../../../../services/types";
+import { registerUser } from "../../../../../../api/requests/authentication";
 
 export const Register = () => {
     const [loading, setLoading] = useState(false);
@@ -20,11 +15,18 @@ export const Register = () => {
 
     const { register, handleSubmit } = form;
 
-    const formSubmitHandler = handleSubmit((data: RegisterCredentials) => {
-        setLoading(true);
-        console.log(data);
-        setLoading(false);
-    });
+    const formSubmitHandler = handleSubmit(
+        async (data: RegisterCredentials) => {
+            try {
+                setLoading(true);
+                const res = await registerUser(data);
+                console.log(res);
+                setLoading(false);
+            } catch (err) {
+                console.log(err);
+            }
+        },
+    );
 
     return (
         <div className={authWrapper}>

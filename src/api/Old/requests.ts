@@ -1,6 +1,6 @@
 import axios from "axios";
-import { assignSvgToCategory } from "../services/Categories";
-import { CategoryWithoutSvgApi } from "./types";
+import { assignSvgToCategory } from "../../services/Categories";
+import { CategoryWithoutSvgApi } from "../../services/types";
 
 export const getCategories = async () => {
     const { data: categories } = await axios.get<CategoryWithoutSvgApi[]>(

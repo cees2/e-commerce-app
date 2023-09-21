@@ -1,4 +1,4 @@
-import { CategoryApi, CategoryWithoutSvgApi } from "../api/types";
+import { CategoryApi, CategoryWithoutSvgApi } from "./types";
 import ClothesSVG from "../graphics/Categories/clothes.svg";
 import ElectronicsSVG from "../graphics/Categories/electronics.svg";
 import FurnituresSVG from "../graphics/Categories/furnitures.svg";
