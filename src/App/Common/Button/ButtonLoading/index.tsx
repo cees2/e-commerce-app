@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { ButtonType } from "../../services/types";
 import { ButtonVariant } from "react-bootstrap/esm/types";
 
@@ -22,6 +22,14 @@ const CustomButtonLoading = (props: Props) => {
             onClick={onClick}
             className={className}
         >
+            {loading && (
+                <Spinner
+                    animation="border"
+                    variant="light"
+                    size="sm"
+                    style={{ marginRight: "0.25rem" }}
+                />
+            )}
             {children}
             {loading && "loading..."}
         </button>
@@ -39,6 +47,7 @@ export const ButtonLoading = (props: Props) => {
         onClick,
         className,
     } = props;
+
     return variant ? (
         <Button
             style={style}
@@ -48,8 +57,15 @@ export const ButtonLoading = (props: Props) => {
             className={className}
             variant={variant}
         >
+            {loading && (
+                <Spinner
+                    animation="border"
+                    variant="light"
+                    size="sm"
+                    style={{ marginRight: "0.25rem" }}
+                />
+            )}
             {children}
-            {loading && "loading..."}
         </Button>
     ) : (
         <CustomButtonLoading {...props} />
