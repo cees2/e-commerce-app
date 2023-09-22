@@ -31,3 +31,8 @@ export interface ProductApi {
     images: string[];
     type?: ProductTypesApi;
 }
+
+export interface userApi {
+    name: string;
+    token: string;
+}
