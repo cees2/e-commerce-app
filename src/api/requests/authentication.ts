@@ -10,3 +10,5 @@ export const loginUser = (data: LogInCredentials): Promise<any> => {
 export const registerUser = (data: RegisterCredentials): Promise<any> => {
     return parseApiData(axios.post(`${BASE_URL}/users/signup`, data));
 };
+
+export const getMe = () => {};

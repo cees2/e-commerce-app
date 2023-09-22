@@ -20,6 +20,7 @@ export const LogIn = () => {
         setLoading(true);
         try {
             const res = await loginUser(data);
+            localStorage.setItem("token", res.token);
             navigate("/");
             console.log(res);
         } catch (err) {
