@@ -1,12 +1,12 @@
 import { useState } from "react";
 import classes from "../../styles/Common.module.css";
-import { FormInput } from "../../../../../Common/Input/FormInput";
+import { FormInput } from "../../../../Common/Input/FormInput";
 import { useForm } from "react-hook-form";
-import { ButtonLoading } from "../../../../../Common/Button/ButtonLoading";
+import { ButtonLoading } from "../../../../Common/Button/ButtonLoading";
 import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { LogInCredentials } from "../../../../../../services/types";
-import { loginUser } from "../../../../../../api/requests/authentication";
+import { LogInCredentials } from "../../../../../services/types";
+import { loginUser } from "../../../../../api/requests/authentication";
 
 export const LogIn = () => {
     const [loading, setLoading] = useState(false);
