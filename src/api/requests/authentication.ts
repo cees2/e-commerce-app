@@ -11,4 +11,12 @@ export const registerUser = (data: RegisterCredentials): Promise<any> => {
     return parseApiData(axios.post(`${BASE_URL}/users/signup`, data));
 };
 
-export const getMe = () => {};
+export const getMe = (token: string) => {
+    return parseApiData(
+        axios.get(`${BASE_URL}/users/me`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }),
+    );
+};
