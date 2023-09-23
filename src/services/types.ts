@@ -32,7 +32,19 @@ export interface ProductApi {
     type?: ProductTypesApi;
 }
 
-export interface userApi {
+export interface UserApi {
     name: string;
     token: string;
+}
+
+export enum FlashType {
+    SUCCESS = "SUCCESS",
+    WARNING = "WARNING",
+    ERROR = "ERROR",
+}
+
+export interface Flash {
+    id: number;
+    type: FlashType;
+    message: string;
 }

@@ -3,7 +3,7 @@ import { FormInput } from "../../../../Common/Input/FormInput";
 import { ButtonLoading } from "../../../../Common/Button/ButtonLoading";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import classes from "../../styles/Common.module.css";
+import classes from "../styles/Common.module.css";
 import { useState } from "react";
 import { RegisterCredentials } from "../../../../../services/types";
 import { registerUser } from "../../../../../api/requests/authentication";
