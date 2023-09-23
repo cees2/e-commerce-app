@@ -1,18 +1,20 @@
 import { useState } from "react";
-import classes from "../../styles/Common.module.css";
+import classes from "../styles/Common.module.css";
 import { FormInput } from "../../../../Common/Input/FormInput";
 import { useForm } from "react-hook-form";
 import { ButtonLoading } from "../../../../Common/Button/ButtonLoading";
 import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { LogInCredentials } from "../../../../../services/types";
+import { FlashType, LogInCredentials } from "../../../../../services/types";
 import { loginUser } from "../../../../../api/requests/authentication";
+import { useFlashContext } from "../../Flash";
 
 export const LogIn = () => {
     const [loading, setLoading] = useState(false);
     const { authWrapper, authHeader, logInOrRegisterBar } = classes;
     const form = useForm<LogInCredentials>();
     const navigate = useNavigate();
+    const { addFlash } = useFlashContext();
 
     const { register, handleSubmit } = form;
 
@@ -21,8 +23,8 @@ export const LogIn = () => {
         try {
             const res = await loginUser(data);
             localStorage.setItem("token", res.token);
+            addFlash(FlashType.SUCCESS, "User has been successfully logged in");
             navigate("/");
-            console.log(res);
         } catch (err) {
             console.log(err);
         }

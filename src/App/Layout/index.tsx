@@ -2,12 +2,15 @@ import { Header } from "./pages/Header";
 import { Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../../store";
+import { AppFlash } from "./pages/Flash";
 
 export const Layout = () => {
     return (
-        <Provider store={store}>
-            <Header />
-            <Outlet />
-        </Provider>
+        <AppFlash>
+            <Provider store={store}>
+                <Header />
+                <Outlet />
+            </Provider>
+        </AppFlash>
     );
 };
