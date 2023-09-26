@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { FlashType, LogInCredentials } from "../../../../../services/types";
 import { loginUser } from "../../../../../api/requests/authentication";
 import { useFlashContext } from "../../Flash";
+import { useFlash } from "../../../../../hooks/useFlash";
 
 export const LogIn = () => {
     const [loading, setLoading] = useState(false);
@@ -15,6 +16,7 @@ export const LogIn = () => {
     const form = useForm<LogInCredentials>();
     // const navigate = useNavigate();
     const { addFlash } = useFlashContext();
+    const { handleError } = useFlash();
 
     const { register, handleSubmit } = form;
 
@@ -25,8 +27,8 @@ export const LogIn = () => {
             localStorage.setItem("token", res.token);
             addFlash(FlashType.SUCCESS, "User has been successfully logged in");
             // navigate("/");
-        } catch (err) {
-            console.log(err);
+        } catch (err: any) {
+            handleError(err);
         }
         setLoading(false);
     });
