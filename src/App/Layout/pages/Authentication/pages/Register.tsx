@@ -7,12 +7,13 @@ import classes from "../styles/Common.module.css";
 import { useState } from "react";
 import { RegisterCredentials } from "../../../../../services/types";
 import { registerUser } from "../../../../../api/requests/authentication";
+import { useFlash } from "../../../../../hooks/useFlash";
 
 export const Register = () => {
     const [loading, setLoading] = useState(false);
     const { authWrapper, authHeader, logInOrRegisterBar } = classes;
     const form = useForm<RegisterCredentials>();
-
+    const { handleError } = useFlash();
     const { register, handleSubmit } = form;
 
     const formSubmitHandler = handleSubmit(
@@ -21,10 +22,10 @@ export const Register = () => {
                 setLoading(true);
                 const res = await registerUser(data);
                 console.log(res);
-                setLoading(false);
             } catch (err) {
-                console.log(err);
+                handleError(err);
             }
+            setLoading(false);
         },
     );
 

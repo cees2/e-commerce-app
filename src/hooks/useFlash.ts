@@ -13,10 +13,7 @@ export const useFlash = () => {
             let message = "";
 
             if (statusNot200) {
-                const errorJSON = error.toJSON();
-
-                console.log(error);
-                console.log(errorJSON);
+                message = error.response.data.message;
             } else if (noResponseReceived) {
                 message = "Server internal error. Try again later";
             } else {
@@ -27,9 +24,11 @@ export const useFlash = () => {
         }
     };
 
-    const handleSuccess = () => {};
+    const handleSuccess = (message: string) =>
+        addFlash(FlashType.SUCCESS, message);
 
-    const handleWarning = () => {};
+    const handleWarning = (message: string) =>
+        addFlash(FlashType.WARNING, message);
 
     return { handleError, handleSuccess, handleWarning };
 };
