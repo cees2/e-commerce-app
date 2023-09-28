@@ -20,8 +20,7 @@ export const Register = () => {
         async (data: RegisterCredentials) => {
             try {
                 setLoading(true);
-                const res = await registerUser(data);
-                console.log(res);
+                await registerUser(data);
             } catch (err) {
                 handleError(err);
             }

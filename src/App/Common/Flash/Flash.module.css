@@ -21,10 +21,22 @@
 .flashMessage {
     display: inline-block;
     margin-left: 0.5rem;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
 }
 
 .success {
     border: 3px solid #50cf29;
+}
+
+.error {
+    border: 3px solid #cf2929;
+}
+
+.warning {
+    border: 3px solid #d3c618;
 }
 
 .closeFlashwrapper {
@@ -36,5 +48,4 @@
 }
 
 @keyframes activateFlash {
-    
 }
