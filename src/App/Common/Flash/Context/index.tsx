@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Flash, FlashType } from "../../../../../services/types";
+import { Flash, FlashType } from "../../../../services/types";
 
 export interface FlashContextApi {
     flashes: Flash[];

@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FlashType, LogInCredentials } from "../../../../../services/types";
 import { loginUser } from "../../../../../api/requests/authentication";
-import { useFlashContext } from "../../Flash";
+import { useFlashContext } from "../../../../Common/Flash";
 import { useFlash } from "../../../../../hooks/useFlash";
 
 export const LogIn = () => {

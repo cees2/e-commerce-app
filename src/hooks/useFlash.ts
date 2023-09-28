@@ -1,4 +1,4 @@
-import { useFlashContext } from "../App/Layout/pages/Flash";
+import { useFlashContext } from "../App/Common/Flash";
 import { FlashType } from "../services/types";
 
 export const useFlash = () => {

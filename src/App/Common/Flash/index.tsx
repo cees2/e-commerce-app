@@ -1,10 +1,10 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import FlashContext, { FlashContextApi } from "./Context";
-import { Flash, FlashType } from "../../../../services/types";
-import SuccessSVG from "../../../../graphics/Common/success.svg";
-import WarningSVG from "../../../../graphics/Common/warning.svg";
-import ErrorSVG from "../../../../graphics/Common/error.svg";
-import CloseSVG from "../../../../graphics/Common/close.svg";
+import { Flash, FlashType } from "../../../services/types";
+import SuccessSVG from "../../../graphics/Common/success.svg";
+import WarningSVG from "../../../graphics/Common/warning.svg";
+import ErrorSVG from "../../../graphics/Common/error.svg";
+import CloseSVG from "../../../graphics/Common/close.svg";
 import classes from "./Flash.module.css";
 
 interface SingleFlashProps {
