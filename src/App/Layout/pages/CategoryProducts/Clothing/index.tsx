@@ -6,8 +6,6 @@ import { ProductApi } from "../../../../../services/types";
 
 export const ClothingProductsPage = () => {
     const categoryProducts = useLoaderData() as ProductApi[];
-    console.log(categoryProducts);
-
     return <CategoryProducts products={categoryProducts} />;
 };
 

@@ -18,7 +18,11 @@ export const LogIn = () => {
     const { addFlash } = useFlashContext();
     const { handleError } = useFlash();
 
-    const { register, handleSubmit } = form;
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = form;
 
     const formSubmitHandler = handleSubmit(async (data: LogInCredentials) => {
         setLoading(true);
@@ -28,7 +32,7 @@ export const LogIn = () => {
             addFlash(FlashType.SUCCESS, "User has been successfully logged in");
             // navigate("/");
         } catch (err: any) {
-            handleError(err);
+            handleError(err, { flash: true });
         }
         setLoading(false);
     });
@@ -41,6 +45,7 @@ export const LogIn = () => {
                 name="email"
                 label="Email"
                 register={register}
+                errors={errors}
             />
             <FormInput
                 type="password"
@@ -48,6 +53,7 @@ export const LogIn = () => {
                 label="Password"
                 register={register}
                 className="mt-2"
+                errors={errors}
             />
             <div className={logInOrRegisterBar}>
                 <Link to="/auth/register">

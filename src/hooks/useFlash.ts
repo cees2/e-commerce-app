@@ -1,10 +1,20 @@
+import { UseFormSetError } from "react-hook-form";
 import { useFlashContext } from "../App/Common/Flash";
-import { FlashType } from "../services/types";
+import { FlashType, InvalidFormField } from "../services/types";
+
+interface ErrorConfig {
+    form?: boolean;
+    flash?: boolean;
+    setError?: UseFormSetError<any>;
+}
 
 export const useFlash = () => {
     const { addFlash } = useFlashContext();
 
-    const handleError = (error: any) => {
+    const handleError = (
+        error: any,
+        { form, flash, setError }: ErrorConfig,
+    ) => {
         const requestError = error.name === "AxiosError";
 
         if (requestError) {
@@ -20,7 +30,17 @@ export const useFlash = () => {
                 message = "Something went wrong. Try again later";
             }
 
-            addFlash(FlashType.ERROR, message);
+            if (flash) addFlash(FlashType.ERROR, message);
+
+            if (form && setError) {
+                error.response.data.errors.forEach(
+                    (fieldValueError: InvalidFormField) => {
+                        setError(fieldValueError.name, {
+                            message: fieldValueError.message,
+                        });
+                    },
+                );
+            }
         }
     };
 

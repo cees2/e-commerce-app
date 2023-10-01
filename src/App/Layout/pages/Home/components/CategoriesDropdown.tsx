@@ -16,7 +16,7 @@ const CategoryItem = ({ name, svg }: CategoryItemProps) => {
     const { categoryItemSVG } = classes;
 
     const handleClick = () => {
-        console.log("EXEC", name);
+        // console.log("EXEC", name);
     };
 
     return (
