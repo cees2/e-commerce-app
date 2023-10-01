@@ -48,3 +48,8 @@ export interface Flash {
     type: FlashType;
     message: string;
 }
+
+export interface InvalidFormField {
+    name: string;
+    message: string;
+}

@@ -14,7 +14,12 @@ export const Register = () => {
     const { authWrapper, authHeader, logInOrRegisterBar } = classes;
     const form = useForm<RegisterCredentials>();
     const { handleError } = useFlash();
-    const { register, handleSubmit } = form;
+    const {
+        register,
+        handleSubmit,
+        setError,
+        formState: { errors },
+    } = form;
 
     const formSubmitHandler = handleSubmit(
         async (data: RegisterCredentials) => {
@@ -22,7 +27,7 @@ export const Register = () => {
                 setLoading(true);
                 await registerUser(data);
             } catch (err) {
-                handleError(err);
+                handleError(err, { form: true, flash: true, setError });
             }
             setLoading(false);
         },
@@ -31,24 +36,32 @@ export const Register = () => {
     return (
         <div className={authWrapper}>
             <h3 className={authHeader}>Register</h3>
-            <FormInput name="name" label="Name" register={register} />
+            <FormInput
+                name="name"
+                label="Name"
+                register={register}
+                errors={errors}
+            />
             <FormInput
                 type="email"
                 name="email"
                 label="Email"
                 register={register}
+                errors={errors}
             />
             <FormInput
                 type="password"
                 name="password"
                 label="Password"
                 register={register}
+                errors={errors}
             />
             <FormInput
                 type="password"
                 name="passwordConfirm"
                 label="Confirm password"
                 register={register}
+                errors={errors}
             />
             <div className={logInOrRegisterBar}>
                 <Button variant="outline-light">

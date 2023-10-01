@@ -1,0 +1,6 @@
+@import "../../../styles/variables.css";
+
+.errorMessageText {
+    color: var(--color-error-primary);
+    font-size: 16px;
+}
