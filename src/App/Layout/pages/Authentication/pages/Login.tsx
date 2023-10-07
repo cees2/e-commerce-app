@@ -63,6 +63,7 @@ export const LogIn = () => {
                     loading={loading}
                     onClick={formSubmitHandler}
                     variant="success"
+                    style={{ backgroundColor: "#41aa7f" }}
                 >
                     Log in
                 </ButtonLoading>
