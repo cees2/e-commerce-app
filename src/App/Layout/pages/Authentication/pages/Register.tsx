@@ -71,6 +71,7 @@ export const Register = () => {
                     loading={loading}
                     onClick={formSubmitHandler}
                     variant="success"
+                    style={{ backgroundColor: "#41aa7f" }}
                 >
                     Register
                 </ButtonLoading>
