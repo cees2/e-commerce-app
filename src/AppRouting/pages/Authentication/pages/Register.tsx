@@ -1,4 +1,4 @@
-import { Register } from "../../../../App/Layout/pages/Authentication/pages/Register";
+import { Register } from "../../../../App/Layout/pages/Security/Authentication/pages/Register";
 
 export const registerRouting = {
     path: "register",

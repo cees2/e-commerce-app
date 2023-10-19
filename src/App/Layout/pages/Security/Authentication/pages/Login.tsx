@@ -1,22 +1,25 @@
 import { useState } from "react";
 import classes from "../styles/Common.module.css";
-import { FormInput } from "../../../../Common/Input/FormInput";
+import { FormInput } from "../../../../../Common/Input/FormInput";
 import { useForm } from "react-hook-form";
-import { ButtonLoading } from "../../../../Common/Button/ButtonLoading";
+import { ButtonLoading } from "../../../../../Common/Button/ButtonLoading";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { FlashType, LogInCredentials } from "../../../../../services/types";
-import { loginUser } from "../../../../../api/requests/authentication";
-import { useFlashContext } from "../../../../Common/Flash";
-import { useFlash } from "../../../../../hooks/useFlash";
+import { Link, useNavigate } from "react-router-dom";
+import { FlashType, LogInCredentials } from "../../../../../../services/types";
+import { loginUser } from "../../../../../../api/requests/authentication";
+import { useFlashContext } from "../../../../../Common/Flash";
+import { useFlash } from "../../../../../../hooks/useFlash";
+import { useDispatch } from "react-redux";
+import { logInUser } from "../../../../../../store/authentication";
 
 export const LogIn = () => {
     const [loading, setLoading] = useState(false);
     const { authWrapper, authHeader, logInOrRegisterBar } = classes;
     const form = useForm<LogInCredentials>();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const { addFlash } = useFlashContext();
     const { handleError } = useFlash();
+    const dispatch = useDispatch();
 
     const {
         register,
@@ -28,9 +31,11 @@ export const LogIn = () => {
         setLoading(true);
         try {
             const res = await loginUser(data);
-            localStorage.setItem("token", res.token);
+            const { token, name } = res;
+            localStorage.setItem("token", token);
+            dispatch(logInUser({ payload: { token, name } }));
             addFlash(FlashType.SUCCESS, "User has been successfully logged in");
-            // navigate("/");
+            navigate("/");
         } catch (err: any) {
             handleError(err, { flash: true });
         }

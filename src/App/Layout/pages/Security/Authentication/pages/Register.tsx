@@ -1,13 +1,13 @@
 import { Button } from "react-bootstrap";
-import { FormInput } from "../../../../Common/Input/FormInput";
-import { ButtonLoading } from "../../../../Common/Button/ButtonLoading";
+import { FormInput } from "../../../../../Common/Input/FormInput";
+import { ButtonLoading } from "../../../../../Common/Button/ButtonLoading";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import classes from "../styles/Common.module.css";
 import { useState } from "react";
-import { RegisterCredentials } from "../../../../../services/types";
-import { registerUser } from "../../../../../api/requests/authentication";
-import { useFlash } from "../../../../../hooks/useFlash";
+import { RegisterCredentials } from "../../../../../../services/types";
+import { registerUser } from "../../../../../../api/requests/authentication";
+import { useFlash } from "../../../../../../hooks/useFlash";
 
 export const Register = () => {
     const [loading, setLoading] = useState(false);

@@ -85,14 +85,17 @@ const SingleFlash = ({
 export const AppFlash = ({ children }: { children: JSX.Element }) => {
     const [flashes, setFlashes] = useState<Flash[]>([]);
 
-    const addFlash = (type: FlashType, message: string) => {
-        const newFlash = {
-            type,
-            message,
-            id: getFlashUniqueId(flashes),
-        };
-        setFlashes((flashes) => [...flashes, newFlash]);
-    };
+    const addFlash = useCallback(
+        (type: FlashType, message: string) => {
+            const newFlash = {
+                type,
+                message,
+                id: getFlashUniqueId(flashes),
+            };
+            setFlashes((flashes) => [...flashes, newFlash]);
+        },
+        [flashes],
+    );
 
     const removeFlash = useCallback(
         (flashId: number) => {
