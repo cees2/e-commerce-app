@@ -4,9 +4,13 @@ import ShoppingCart from "../../../../../../graphics/StickyNavigation/shopping_c
 import UserAccount from "../../../../../../graphics/StickyNavigation/user_account.svg";
 import LogIn from "../../../../../../graphics/StickyNavigation/log_in.svg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectIsAuthenticated } from "../../../../../../store/authentication/selectors";
 
 export const StickyNavigation = () => {
     const { stickyNavigationBar, stickyNavigationItem } = classes;
+    const isAuthenticated = useSelector(selectIsAuthenticated);
+    console.log("stickynav: ", isAuthenticated);
 
     return (
         <div className={stickyNavigationBar}>
@@ -22,13 +26,15 @@ export const StickyNavigation = () => {
                     <p>Cart</p>
                 </div>
             </Link>
-            <Link to="/auth/login">
-                <div className={stickyNavigationItem}>
-                    <img src={LogIn} alt="log in" />
-                    <p>Log in</p>
-                </div>
-            </Link>
-            {false && (
+            {!isAuthenticated && (
+                <Link to="/auth/login">
+                    <div className={stickyNavigationItem}>
+                        <img src={LogIn} alt="log in" />
+                        <p>Log in</p>
+                    </div>
+                </Link>
+            )}
+            {isAuthenticated && (
                 <Link to="/user">
                     <div className={stickyNavigationItem}>
                         <img src={UserAccount} alt="user account" />
