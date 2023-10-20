@@ -1,17 +1,25 @@
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { FormInput } from "../../../../../Common/Input/FormInput";
 import { ButtonLoading } from "../../../../../Common/Button/ButtonLoading";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import classes from "../styles/Common.module.css";
 import { useState } from "react";
-import { RegisterCredentials } from "../../../../../../services/types";
+import {
+    FlashType,
+    RegisterCredentials,
+} from "../../../../../../services/types";
 import { registerUser } from "../../../../../../api/requests/authentication";
+import { userRole } from "./services/types";
+import { useFlashContext } from "../../../../../Common/Flash";
+import { logInUser } from "../../../../../../store/authentication";
+import { useDispatch } from "react-redux";
 import { useFlash } from "../../../../../../hooks/useFlash";
 
 export const Register = () => {
     const [loading, setLoading] = useState(false);
-    const { authWrapper, authHeader, logInOrRegisterBar } = classes;
+    const { authWrapper, authHeader, logInOrRegisterBar, selectMenuOptions } =
+        classes;
     const form = useForm<RegisterCredentials>();
     const { handleError } = useFlash();
     const {
@@ -20,12 +28,23 @@ export const Register = () => {
         setError,
         formState: { errors },
     } = form;
+    const { addFlash } = useFlashContext();
+    const dispatch = useDispatch();
 
     const formSubmitHandler = handleSubmit(
         async (data: RegisterCredentials) => {
             try {
                 setLoading(true);
-                await registerUser(data);
+                const res = await registerUser(data);
+                const {
+                    user: { token, name, role },
+                } = res;
+                localStorage.setItem("token", token);
+                dispatch(logInUser({ payload: { token, name, role } }));
+                addFlash(
+                    FlashType.SUCCESS,
+                    "User has been successfully registered",
+                );
             } catch (err) {
                 handleError(err, { form: true, flash: true, setError });
             }
@@ -63,6 +82,16 @@ export const Register = () => {
                 register={register}
                 errors={errors}
             />
+            <Form.Group className="mt-2">
+                <Form.Label>Select Role</Form.Label>
+                <Form.Select
+                    className={selectMenuOptions}
+                    {...register("role")}
+                >
+                    <option value={userRole.USER}>User</option>
+                    <option value={userRole.SELLER}>Seller</option>
+                </Form.Select>
+            </Form.Group>
             <div className={logInOrRegisterBar}>
                 <Button variant="outline-light">
                     <Link to="/auth/login">Log in</Link>
