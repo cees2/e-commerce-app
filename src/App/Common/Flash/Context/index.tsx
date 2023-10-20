@@ -4,7 +4,7 @@ import { Flash, FlashType } from "../../../../services/types";
 export interface FlashContextApi {
     flashes: Flash[];
     addFlash: (type: FlashType, message: string) => void;
-    removeFlash: (flashId: number) => void;
+    removeFlash: (flashId: string) => void;
 }
 
 const FlashContext = createContext<FlashContextApi>({

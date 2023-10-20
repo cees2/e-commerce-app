@@ -44,7 +44,7 @@ export enum FlashType {
 }
 
 export interface Flash {
-    id: number;
+    id: string;
     type: FlashType;
     message: string;
 }

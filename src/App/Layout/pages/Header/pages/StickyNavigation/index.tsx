@@ -10,7 +10,6 @@ import { selectIsAuthenticated } from "../../../../../../store/authentication/se
 export const StickyNavigation = () => {
     const { stickyNavigationBar, stickyNavigationItem } = classes;
     const isAuthenticated = useSelector(selectIsAuthenticated);
-    console.log("stickynav: ", isAuthenticated);
 
     return (
         <div className={stickyNavigationBar}>

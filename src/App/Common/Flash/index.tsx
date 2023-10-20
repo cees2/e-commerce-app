@@ -9,7 +9,7 @@ import classes from "./Flash.module.css";
 
 interface SingleFlashProps {
     flash: Flash;
-    onFlashRemove: (flashId: number) => void;
+    onFlashRemove: (flashId: string) => void;
     flashIndex: number;
 }
 
@@ -33,21 +33,6 @@ const getFlashConfig = (flashType: FlashType) => {
                 svg: ErrorSVG,
             };
     }
-};
-
-const getFlashUniqueId = (flashes: Flash[]): number => {
-    let findingUniqueIdInProgress = true;
-    let uniqueId = Math.random();
-
-    while (findingUniqueIdInProgress) {
-        if (flashes.some((flash) => flash.id === uniqueId)) {
-            uniqueId = Math.random();
-            continue;
-        }
-        findingUniqueIdInProgress = false;
-    }
-
-    return uniqueId;
 };
 
 const SingleFlash = ({
@@ -90,15 +75,15 @@ export const AppFlash = ({ children }: { children: JSX.Element }) => {
             const newFlash = {
                 type,
                 message,
-                id: getFlashUniqueId(flashes),
+                id: crypto.randomUUID(),
             };
             setFlashes((flashes) => [...flashes, newFlash]);
         },
-        [flashes],
+        [],
     );
 
     const removeFlash = useCallback(
-        (flashId: number) => {
+        (flashId: string) => {
             const flashIndex = flashes?.findIndex(
                 (flash) => flash.id === flashId,
             );
