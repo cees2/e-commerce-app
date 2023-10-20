@@ -1,4 +1,5 @@
 import { ProductTypesApi } from "../App/Common/services/types";
+import { userRole } from "../App/Layout/pages/Security/Authentication/pages/services/types";
 
 export interface LogInCredentials {
     email: string;
@@ -10,6 +11,7 @@ export interface RegisterCredentials {
     email: string;
     password: string;
     passwordConfirm: string;
+    role: userRole;
 }
 
 export interface CategoryApi {

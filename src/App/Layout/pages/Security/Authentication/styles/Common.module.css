@@ -1,3 +1,5 @@
+@import "../../../../../../styles/variables.css";
+
 .authWrapper {
     padding: 2rem;
 }
@@ -19,4 +21,8 @@
 .logInOrRegisterBar > button > a {
     color: #fff;
     text-decoration: none;
+}
+
+.selectMenuOptions option {
+    color: #000;
 }
