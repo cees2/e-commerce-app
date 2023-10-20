@@ -17,7 +17,6 @@ export const useAuth = () => {
 
         try {
             const res = await getMe(tokenFromLocalStorage);
-            console.log(res);
             const {
                 message,
                 data: {

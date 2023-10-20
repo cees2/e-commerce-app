@@ -15,9 +15,7 @@ interface Props {
 const CategoryItem = ({ name, svg }: CategoryItemProps) => {
     const { categoryItemSVG } = classes;
 
-    const handleClick = () => {
-        // console.log("EXEC", name);
-    };
+    const handleClick = () => {};
 
     return (
         <Dropdown.Item className="py-2" onClick={handleClick}>
