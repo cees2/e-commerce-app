@@ -17,14 +17,17 @@ export const useAuth = () => {
 
         try {
             const res = await getMe(tokenFromLocalStorage);
+            console.log(res);
             const {
                 message,
-                user: { name, email },
+                data: {
+                    user: { name, email, role },
+                },
             } = res;
             if (message === "Success" && email) {
                 dispatch(
                     logInUser({
-                        payload: { token: tokenFromLocalStorage, name },
+                        payload: { token: tokenFromLocalStorage, name, role },
                     }),
                 );
             }

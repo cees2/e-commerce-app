@@ -6,3 +6,5 @@ export const selectToken = (state: RootState) => state.authReducer.token;
 
 export const selectIsAuthenticated = (state: RootState) =>
     state.authReducer.isAuthenticated;
+
+export const selectUserRole = (state: RootState) => state.authReducer.userRole;
