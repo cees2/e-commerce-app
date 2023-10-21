@@ -1,0 +1,18 @@
+@import "../../../../../styles/variables.css";
+
+.sidebarGroupWrapper {
+    margin-bottom: 1rem;
+    background-color: var(--color-primary-dark);
+    padding-left: 0;
+
+    .sidebarList {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .sidebarGroupTitle {
+        font-size: 20px;
+        padding: 8px 0 8px 12px;
+        margin: 0;
+    }
+}

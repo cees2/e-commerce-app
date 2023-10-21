@@ -3,7 +3,11 @@ import { MainHeader } from "./pages/MainHeader";
 import { useAuth } from "../../../../hooks/useAuth";
 import { useEffect } from "react";
 
-export const Header = () => {
+interface Props {
+    setSidebarActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Header = (props: Props) => {
     const shouldStickyNavigationBeDisplayed = window.innerWidth <= 600;
     const { authenticateUser } = useAuth();
 
@@ -14,7 +18,9 @@ export const Header = () => {
     return (
         <div>
             <MainHeader />
-            {shouldStickyNavigationBeDisplayed && <StickyNavigation />}
+            {shouldStickyNavigationBeDisplayed && (
+                <StickyNavigation {...props} />
+            )}
         </div>
     );
 };

@@ -7,9 +7,17 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectIsAuthenticated } from "../../../../../../store/authentication/selectors";
 
-export const StickyNavigation = () => {
+interface Props {
+    setSidebarActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const StickyNavigation = (props: Props) => {
+    const { setSidebarActive } = props;
     const { stickyNavigationBar, stickyNavigationItem } = classes;
     const isAuthenticated = useSelector(selectIsAuthenticated);
+
+    const handleAccountIconClicked = () =>
+        setSidebarActive((active: boolean) => !active);
 
     return (
         <div className={stickyNavigationBar}>
@@ -34,12 +42,13 @@ export const StickyNavigation = () => {
                 </Link>
             )}
             {isAuthenticated && (
-                <Link to="/user">
-                    <div className={stickyNavigationItem}>
-                        <img src={UserAccount} alt="user account" />
-                        <p>Account</p>
-                    </div>
-                </Link>
+                <div
+                    className={stickyNavigationItem}
+                    onClick={handleAccountIconClicked}
+                >
+                    <img src={UserAccount} alt="user account" />
+                    <p>Account</p>
+                </div>
             )}
         </div>
     );
