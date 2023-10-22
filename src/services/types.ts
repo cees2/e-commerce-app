@@ -1,9 +1,14 @@
 import { ProductTypesApi } from "../App/Common/services/types";
-import { userRole } from "../App/Layout/pages/Security/Authentication/pages/services/types";
 
 export interface LogInCredentials {
     email: string;
     password: string;
+}
+
+export enum userRole {
+    USER = "user",
+    SELLER = "seller",
+    ADMIN = "admin",
 }
 
 export interface RegisterCredentials {

@@ -2,23 +2,14 @@ import { Button } from "react-bootstrap";
 import { SidebarGroup } from "./components/SidebarGroup";
 import { SidebarConfig } from "./services/types";
 import classes from "./styles/sidebarElement.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOutUser } from "../../../../store/authentication";
+import { selectUserRole } from "../../../../store/authentication/selectors";
+import { userRole } from "../../../../services/types";
 
 interface Props {
     sidebarActive: boolean;
 }
-
-const productGroupConfig = [
-    {
-        name: "My purchases",
-        link: "/user/:userId/purchases",
-    },
-    {
-        name: "Create new product",
-        link: "/products/new",
-    },
-] as SidebarConfig[];
 
 const accountGroupConfig = [
     {
@@ -31,10 +22,29 @@ const accountGroupConfig = [
     },
 ] as SidebarConfig[];
 
+const getProductGroupConfig = (role: userRole | null) => {
+    const productGroupConfig = [
+        {
+            name: "My purchases",
+            link: "/user/:userId/purchases",
+        },
+    ] as SidebarConfig[];
+
+    if (role !== userRole.USER)
+        productGroupConfig.push({
+            name: "Create new product",
+            link: "/products/new",
+        });
+
+    return productGroupConfig;
+};
+
 export const Sidebar = (props: Props) => {
     const { sidebarActive } = props;
     const { sidebarWrapper, activateSidebar, logoutButton } = classes;
     const dispatch = useDispatch();
+    const role = useSelector(selectUserRole);
+    const productGroupConfig = getProductGroupConfig(role);
 
     const logOutHandler = () => dispatch(logOutUser());
 
