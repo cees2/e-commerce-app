@@ -10,7 +10,7 @@ import {
     RegisterCredentials,
 } from "../../../../../../services/types";
 import { registerUser } from "../../../../../../api/requests/authentication";
-import { userRole } from "./services/types";
+import { userRole } from "../../../../../../services/types";
 import { useFlashContext } from "../../../../../Common/Flash";
 import { logInUser } from "../../../../../../store/authentication";
 import { useDispatch } from "react-redux";

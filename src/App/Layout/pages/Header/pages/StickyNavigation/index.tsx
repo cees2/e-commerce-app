@@ -19,15 +19,17 @@ export const StickyNavigation = (props: Props) => {
     const handleAccountIconClicked = () =>
         setSidebarActive((active: boolean) => !active);
 
+    const hideSidebar = () => setSidebarActive(false);
+
     return (
         <div className={stickyNavigationBar}>
-            <Link to="/">
+            <Link to="/" onClick={hideSidebar}>
                 <div className={stickyNavigationItem}>
                     <img src={HomeSVG} alt="home" />
                     <p>Start</p>
                 </div>
             </Link>
-            <Link to="/cart">
+            <Link to="/cart" onClick={hideSidebar}>
                 <div className={stickyNavigationItem}>
                     <img src={ShoppingCart} alt="shopping cart" />
                     <p>Cart</p>
