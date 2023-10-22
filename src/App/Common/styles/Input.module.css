@@ -4,3 +4,30 @@
     color: var(--color-error-primary);
     font-size: 16px;
 }
+
+.formInput {
+    padding: 3px 12px;
+}
+
+.formLabel {
+    font-size: var(--font-size-label);
+    margin-bottom: 4px;
+}
+
+.textAreaWrapper {
+    width: 100%;
+    color: var(--font-color-dark);
+    margin-top: 8px;
+
+    .textAreaLabel {
+        font-size: var(--font-size-label);
+    }
+
+    .textArea {
+        width: 100%;
+        border-radius: 6px;
+        padding: 4px 12px;
+        color: black;
+        font-size: var(--font-size-input);
+    }
+}

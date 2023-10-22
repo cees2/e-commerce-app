@@ -5,7 +5,7 @@ import { ButtonVariant } from "react-bootstrap/esm/types";
 interface Props {
     children: string;
     loading: boolean;
-    onClick: () => void;
+    onClick?: () => void;
     style?: React.CSSProperties;
     type?: ButtonType;
     variant?: ButtonVariant;

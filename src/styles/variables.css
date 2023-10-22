@@ -2,7 +2,10 @@
     --color-primary: #41aa7f;
     --color-primary-dark: #389970;
     --color-secondary: #606d67;
-    --font-primary-color: #e7e7e7;
+    --font-color-light: #e7e7e7;
+    --font-color-dark: #212529;
     --badge-color-primary: #22aa22;
     --color-error-primary: #d46d6d;
+    --font-size-input: 16px;
+    --font-size-label: 14px;
 }

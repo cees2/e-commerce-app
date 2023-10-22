@@ -20,7 +20,7 @@
         text-decoration: none;
         & > span {
             display: block;
-            color: var(--font-primary-color);
+            color: var(--font-color-light);
             font-size: 16px;
             margin: 0;
             padding: 8px 0;
