@@ -13,7 +13,7 @@ export const Layout = () => {
         <AppFlash>
             <Provider store={store}>
                 <Header setSidebarActive={setSidebarActive} />
-                <Sidebar sidebarActive={sidebarActive} />
+                <Sidebar sidebarActive={sidebarActive} setSidebarActive={setSidebarActive} />
                 <Outlet />
             </Provider>
         </AppFlash>

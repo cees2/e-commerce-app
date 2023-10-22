@@ -9,6 +9,7 @@ import { userRole } from "../../../../services/types";
 
 interface Props {
     sidebarActive: boolean;
+    setSidebarActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const accountGroupConfig = [
@@ -40,7 +41,7 @@ const getProductGroupConfig = (role: userRole | null) => {
 };
 
 export const Sidebar = (props: Props) => {
-    const { sidebarActive } = props;
+    const { sidebarActive, setSidebarActive } = props;
     const { sidebarWrapper, activateSidebar, logoutButton } = classes;
     const dispatch = useDispatch();
     const role = useSelector(selectUserRole);
@@ -54,8 +55,16 @@ export const Sidebar = (props: Props) => {
                 sidebarActive ? activateSidebar : ""
             }`}
         >
-            <SidebarGroup config={productGroupConfig} title="Products" />
-            <SidebarGroup config={accountGroupConfig} title="Account" />
+            <SidebarGroup
+                config={productGroupConfig}
+                title="Products"
+                setSidebarActive={setSidebarActive}
+            />
+            <SidebarGroup
+                config={accountGroupConfig}
+                title="Account"
+                setSidebarActive={setSidebarActive}
+            />
             <Button onClick={logOutHandler} className={logoutButton}>
                 Log out
             </Button>

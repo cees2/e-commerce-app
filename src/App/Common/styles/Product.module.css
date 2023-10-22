@@ -7,7 +7,7 @@
     align-items: center;
     flex-shrink: 0;
     flex-basis: calc(50vw - 10px);
-    color: var(--font-primary-color);
+    color: var(--font-color-light);
 }
 
 .productWrapper > img.productImage {

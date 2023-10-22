@@ -1,6 +1,7 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Form } from "react-bootstrap";
 import { InputErrorMessage } from "./InputErrorMessage";
+import classes from "../styles/Input.module.css";
 
 interface Props {
     name: string;
@@ -31,14 +32,16 @@ export const FormInput = ({
         | string
         | null
         | undefined;
+    const { formInput, formLabel } = classes;
 
     return (
         <Form.Group className={`${className} mt-2`}>
-            {label && <Form.Label>{label}</Form.Label>}
+            {label && <Form.Label className={formLabel}>{label}</Form.Label>}
             <Form.Control
                 {...register(name)}
                 type={type || "text"}
                 placeholder={placeholder}
+                className={formInput}
             />
             {errorMessage && <InputErrorMessage errorMessage={errorMessage} />}
         </Form.Group>
