@@ -26,7 +26,9 @@ export const useAuth = () => {
             if (message === "Success" && email) {
                 dispatch(
                     logInUser({
-                        payload: { token: tokenFromLocalStorage, name, role },
+                        token: tokenFromLocalStorage,
+                        name,
+                        role,
                     }),
                 );
             }

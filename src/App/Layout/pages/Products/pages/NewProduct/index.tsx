@@ -4,6 +4,10 @@ import { NewProductApi } from "../../services/types";
 import { FormDirty } from "../../../../../Common/Input/FormDirty";
 import { TextareaInput } from "../../../../../Common/Input/TextareaInput";
 import { ImageUpload } from "../../../../../Common/Input/ImageUpload";
+import { useFlash } from "../../../../../../hooks/useFlash";
+import { createProduct } from "../../../../../../api/requests/products";
+import { useSelector } from "react-redux";
+import { selectToken } from "../../../../../../store/authentication/selectors";
 
 export const NewProduct = () => {
     const form = useForm<NewProductApi>();
@@ -12,10 +16,17 @@ export const NewProduct = () => {
         formState: { errors },
         formState,
         handleSubmit,
+        setError,
     } = form;
+    const { handleError } = useFlash();
+    const token = useSelector(selectToken);
 
-    const onSubmit = handleSubmit((data: NewProductApi) => {
-        console.log(data);
+    const onSubmit = handleSubmit(async (data: NewProductApi) => {
+        try {
+            const res = await createProduct(data, token);
+        } catch (err) {
+            handleError(err, { flash: true, form: true, setError });
+        }
     });
 
     return (
@@ -62,6 +73,7 @@ export const NewProduct = () => {
                             name="images"
                             register={register}
                             label="Images"
+                            isMultiple
                         />
                     </div>
                 </div>
