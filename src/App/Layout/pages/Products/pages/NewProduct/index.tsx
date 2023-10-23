@@ -62,6 +62,7 @@ export const NewProduct = () => {
                             name="images"
                             register={register}
                             label="Images"
+                            isMultiple
                         />
                     </div>
                 </div>
