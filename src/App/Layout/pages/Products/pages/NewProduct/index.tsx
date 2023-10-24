@@ -23,7 +23,7 @@ export const NewProduct = () => {
 
     const onSubmit = handleSubmit(async (data: NewProductApi) => {
         try {
-            const res = await createProduct(data, token);
+            await createProduct(data, token);
         } catch (err) {
             handleError(err, { flash: true, form: true, setError });
         }
@@ -57,6 +57,7 @@ export const NewProduct = () => {
                             register={register}
                             name="price"
                             errors={errors}
+                            type="number"
                         />
                     </div>
                 </div>

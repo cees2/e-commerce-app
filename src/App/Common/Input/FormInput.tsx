@@ -11,6 +11,7 @@ interface Props {
     className?: string;
     placeholder?: string;
     errors: FieldErrors;
+    currencyInput?: boolean;
 }
 
 const getErrorMessage = (name: string, errors: FieldErrors) => {
