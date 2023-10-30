@@ -33,7 +33,7 @@ export const LogIn = () => {
             const res = await loginUser(data);
             const { token, name, role } = res;
             localStorage.setItem("token", token);
-            dispatch(logInUser({ payload: { token, name, role } }));
+            dispatch(logInUser({ token, name, role }));
             addFlash(FlashType.SUCCESS, "User has been successfully logged in");
             navigate("/");
         } catch (err: any) {

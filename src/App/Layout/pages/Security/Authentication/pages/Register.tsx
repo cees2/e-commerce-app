@@ -40,7 +40,7 @@ export const Register = () => {
                     user: { token, name, role },
                 } = res;
                 localStorage.setItem("token", token);
-                dispatch(logInUser({ payload: { token, name, role } }));
+                dispatch(logInUser({ token, name, role  }));
                 addFlash(
                     FlashType.SUCCESS,
                     "User has been successfully registered",
