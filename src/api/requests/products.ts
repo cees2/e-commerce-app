@@ -9,6 +9,7 @@ export const createProduct = (
     return axios.post(`${BASE_URL}/products`, data, {
         headers: {
             Authorization: `Bearer ${token}`,
+            "Content-type": "multipart/form-data",
         },
     });
 };

@@ -17,12 +17,20 @@ export const NewProduct = () => {
         formState,
         handleSubmit,
         setError,
+        control,
     } = form;
     const { handleError } = useFlash();
     const token = useSelector(selectToken);
 
     const onSubmit = handleSubmit(async (data: NewProductApi) => {
         try {
+            const formData = new FormData();
+            // const imagesArray = Array.from(data.images);
+            // imagesArray.forEach((image) => formData.append("images", image));
+            formData.append("images", data.images[0]);
+            data.images = formData;
+            // console.log(formData);
+            console.log(token);
             await createProduct(data, token);
         } catch (err) {
             handleError(err, { flash: true, form: true, setError });
@@ -74,6 +82,7 @@ export const NewProduct = () => {
                             name="images"
                             register={register}
                             label="Images"
+                            control={control}
                             isMultiple
                         />
                     </div>
