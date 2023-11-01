@@ -25,13 +25,16 @@ export const NewProduct = () => {
     const onSubmit = handleSubmit(async (data: NewProductApi) => {
         try {
             const formData = new FormData();
-            // const imagesArray = Array.from(data.images);
-            // imagesArray.forEach((image) => formData.append("images", image));
-            formData.append("images", data.images[0]);
-            data.images = formData;
-            // console.log(formData);
-            console.log(token);
-            await createProduct(data, token);
+            formData.append("name", data.name);
+            formData.append("price", data.price.toString());
+            formData.append("description", data.description);
+            if (data.images) {
+                const imagesArray = [...data.images];
+                imagesArray.forEach((image) => {
+                    if (image instanceof File) formData.append("images", image);
+                });
+            }
+            await createProduct(formData, token);
         } catch (err) {
             handleError(err, { flash: true, form: true, setError });
         }

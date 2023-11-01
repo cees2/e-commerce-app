@@ -3,7 +3,7 @@ import { NewProductApi } from "../../App/Layout/pages/Products/services/types";
 import { BASE_URL } from "../common";
 
 export const createProduct = (
-    data: NewProductApi,
+    data: FormData,
     token: string | null,
 ): Promise<NewProductApi> => {
     return axios.post(`${BASE_URL}/products`, data, {
