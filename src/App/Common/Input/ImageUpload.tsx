@@ -25,7 +25,7 @@ export const ImageUpload = (props: Props) => {
                         type="file"
                         id={name}
                         {...register(name)}
-                        // multiple={isMultiple}
+                        multiple={isMultiple}
                     />
                 </div>
             )}
