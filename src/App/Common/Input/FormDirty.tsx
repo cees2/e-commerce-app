@@ -13,7 +13,7 @@ interface Props {
 
 export const FormDirty = (props: Props) => {
     const { cancelPathRedirect, children, formState, onSubmit } = props;
-    const { isDirty, isSubmitting } = formState;
+    const { isDirty, isLoading } = formState;
     const navigate = useNavigate();
     const { formDirtyButtonsWrapper } = classes;
 
@@ -31,7 +31,7 @@ export const FormDirty = (props: Props) => {
                             Cancel
                         </Button>
                         <ButtonLoading
-                            loading={isSubmitting}
+                            loading={isLoading}
                             type={ButtonType.SUBMIT}
                             variant="primary"
                         >

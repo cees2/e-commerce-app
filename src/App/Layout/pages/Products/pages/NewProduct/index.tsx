@@ -8,6 +8,8 @@ import { useFlash } from "../../../../../../hooks/useFlash";
 import { createProduct } from "../../../../../../api/requests/products";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../../../../../store/authentication/selectors";
+import { useFlashContext } from "../../../../../Common/Flash";
+import { FlashType } from "../../../../../../services/types";
 
 export const NewProduct = () => {
     const form = useForm<NewProductApi>();
@@ -20,6 +22,7 @@ export const NewProduct = () => {
         control,
     } = form;
     const { handleError } = useFlash();
+    const { addFlash } = useFlashContext();
     const token = useSelector(selectToken);
 
     const onSubmit = handleSubmit(async (data: NewProductApi) => {
@@ -35,6 +38,7 @@ export const NewProduct = () => {
                 });
             }
             await createProduct(formData, token);
+            addFlash(FlashType.SUCCESS, "Product has been successfully added");
         } catch (err) {
             handleError(err, { flash: true, form: true, setError });
         }
