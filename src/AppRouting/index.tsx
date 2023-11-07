@@ -3,6 +3,7 @@ import { categoryProductsRouting } from "./pages/CategoryProducts";
 import { mainContentRouting } from "./pages/Main";
 import { authenticationRouting } from "./pages/Authentication";
 import { productRouting } from "./pages/Products";
+import { accountRouting } from "./pages/Account";
 
 export const appMainRouting = [
     {
@@ -13,6 +14,7 @@ export const appMainRouting = [
             categoryProductsRouting,
             authenticationRouting,
             productRouting,
+            accountRouting,
         ],
     },
 ];
